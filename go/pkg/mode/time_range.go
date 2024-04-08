@@ -22,11 +22,11 @@ func (r TimeRange) Contains(t time.Time) bool {
 func ParseTimeRange(startTime string, endTime string) (TimeRange, error) {
 	const op = "parse-time-range"
 
-	begin, err := time.Parse(time.RFC3339, startTime)
+	start, err := time.Parse(time.RFC3339, startTime)
 	if err != nil {
 		return TimeRange{}, &Error{
 			Code:    ErrInvalidArgument,
-			Message: "Invalid begin timestamp",
+			Message: "Invalid start timestamp",
 			Op:      op,
 			Err:     err,
 		}
@@ -42,5 +42,5 @@ func ParseTimeRange(startTime string, endTime string) (TimeRange, error) {
 		}
 	}
 
-	return TimeRange{Start: begin, End: end}, nil
+	return TimeRange{Start: start, End: end}, nil
 }

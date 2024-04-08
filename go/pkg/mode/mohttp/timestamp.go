@@ -18,9 +18,12 @@ type TimestampRepository struct {
 
 // NewTimestampRepository allocates and returns TimestampRepository.
 func NewTimestampRepository(host string) *TimestampRepository {
+
+	// Temporary setting value. Change according to the situation.
 	client := &http.Client{
-		Timeout: 10 * time.Second,
+		Timeout: 30 * time.Second,
 	}
+
 	return &TimestampRepository{host: host, client: client}
 }
 

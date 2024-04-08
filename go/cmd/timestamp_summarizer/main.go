@@ -5,7 +5,6 @@ import (
 	"fmt"
 	"log"
 	"os"
-	"time"
 
 	"github.com/seamoooo/take-home-assignment/go/pkg/mode"
 	"github.com/seamoooo/take-home-assignment/go/pkg/mode/mohttp"
@@ -29,8 +28,7 @@ func main() {
 		TimestampRepository: repo,
 	}
 
-	ctx, cancel := context.WithTimeout(context.Background(), 60*time.Second)
-	defer cancel()
+	ctx := context.Background()
 
 	out, err := sht.Do(ctx, input)
 	if err != nil {

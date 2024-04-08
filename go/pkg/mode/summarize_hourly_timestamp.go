@@ -62,7 +62,7 @@ func calculateHourlyAverages(data string, timeRange TimeRange) (map[time.Time]fl
 	var currentBucketTs time.Time
 	var currentBucketValues []float64
 
-	assignDataPointToHourlyBucke := func(ts time.Time, value float64) {
+	assignDataPointToHourlyBucket := func(ts time.Time, value float64) {
 		bucketTs := time.Date(ts.Year(), ts.Month(), ts.Day(), ts.Hour(), 0, 0, 0, ts.Location())
 		if bucketTs != currentBucketTs {
 			if len(currentBucketValues) > 0 {
@@ -90,7 +90,7 @@ func calculateHourlyAverages(data string, timeRange TimeRange) (map[time.Time]fl
 			}
 		}
 
-		assignDataPointToHourlyBucke(ts, value)
+		assignDataPointToHourlyBucket(ts, value)
 	}
 
 	if len(currentBucketValues) > 0 {

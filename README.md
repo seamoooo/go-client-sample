@@ -1,4 +1,4 @@
-# take-home assignment from MODE
+# take-home assignment
 
 ### Checking the Results
 

@@ -10,8 +10,6 @@ import (
 	"github.com/seamoooo/take-home-assignment/go/pkg/mode/mohttp"
 )
 
-const modeAPIhost = "https://tsserv.tinkermode.dev"
-
 func main() {
 	if len(os.Args) != 3 {
 		fatalError("Usage: %s <begin_timestamp> <end_timestamp>", os.Args[0])
@@ -22,7 +20,7 @@ func main() {
 		fatalError("%v", err)
 	}
 
-	repo := mohttp.NewTimestampRepository(modeAPIhost)
+	repo := mohttp.NewTimestampRepository(APIhost)
 	input := mode.SummarizeHourlyTimestampInput{TimeRange: timeRange}
 	sht := mode.SummarizeHourlyTimestamp{
 		TimestampRepository: repo,
